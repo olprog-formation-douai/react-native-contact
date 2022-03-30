@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {SafeAreaView, Text, StyleSheet, Platform, ScrollView} from 'react-native';
+import {SafeAreaView, Text, StyleSheet, Platform, ScrollView, FlatList} from 'react-native';
 import CardView from './components/CardView';
 
 const users = [
@@ -23,21 +23,14 @@ const users = [
     {id: 9, img: 'https://randomuser.me/api/portraits/women/35.jpg', name: 'Lori NGUYEN', email: 'lori.nguyen@example.com', phone: '06.26.91.65.49'},
 ];
 
+const renderItem = ({item}) => {
+    return <CardView user={item} />
+}
+
 const App = () => {
     return (
         <SafeAreaView style={styles.safeArea}>
-            <ScrollView>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-                <CardView/>
-            </ScrollView>
+            <FlatList data={users} renderItem={renderItem} />
         </SafeAreaView>
     );
 };

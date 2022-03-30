@@ -1,27 +1,29 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 
-const CardView = () => {
+const CardView = ({user}) => {
 
     return (
         <View style={styles.card}>
-            <Text style={{fontSize: 25, textDecorationLine: 'underline', marginBottom: 10}} >Fatma EKICI</Text>
+            <Text style={{fontSize: 25, textDecorationLine: 'underline', marginBottom: 10}} >
+                {user.name}
+            </Text>
             <View style={styles.contenu}>
                 <Image source={{
-                    uri: 'https://randomuser.me/api/portraits/women/57.jpg',
+                    uri: user.img,
                 }} style={{width: 100, height: 100, borderRadius: 10}}/>
 
                 <View>
                     <View style={styles.infos}>
                         <Image source={require('../assets/outline_alternate_email_white_24dp.png')} />
                         <Text style={styles.text}>
-                            fatma.ekici@example.com
+                            {user.email}
                         </Text>
                     </View>
                     <View style={styles.infos}>
                         <Image source={require('../assets/outline_phone_iphone_white_24dp.png')} />
                         <Text style={styles.text}>
-                            06.26.91.65.49
+                            {user.phone}
                         </Text>
                     </View>
                 </View>
